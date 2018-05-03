@@ -1,12 +1,61 @@
-var colors = generateColors(6);
-
-
-
+var num_of_squares = 6;
+var colors = generateColors(num_of_squares);
 var picked = pickColor();
 var squares = document.querySelectorAll('.square');
 var color_disp = document.getElementById('rgbv');
 var msg_disp = document.getElementById('message');
+var reset_btn = document.getElementById('reset');
+var header = document.getElementById("headme");
+var easy_btn = document.getElementById("Easy");
+var hard_btn = document.getElementById("Hard");
 
+easy_btn.addEventListener("click",function(){
+    hard_btn.classList.remove("selected");
+
+    easy_btn.classList.add("selected");
+    num_of_squares = 3;
+    colors  = generateColors(num_of_squares);
+    picked = pickColor();
+    color_disp.textContent = picked;
+    console.log(colors);
+    for (var i= 0 ;i<squares.length;i++){
+        if(colors[i]){
+            squares[i].style.background = colors[i];
+        }
+        else{
+            squares[i].style.display = 'none';
+        }
+        }
+
+});
+
+hard_btn.addEventListener("click",function(){
+    hard_btn.classList.add("selected");
+
+    easy_btn.classList.remove("selected");
+    num_of_squares = 6;
+    colors  = generateColors(num_of_squares);
+    picked = pickColor();
+    color_disp.textContent = picked;
+    console.log(colors);
+    for (var i= 0 ;i<squares.length;i++){
+            squares[i].style.background = colors[i];
+            squares[i].style.display = 'block';
+
+        }
+});
+
+
+reset_btn.addEventListener("click",function(){
+     colors = generateColors(num_of_squares);
+     picked = pickColor();
+    color_disp.textContent = picked;
+    
+    for(var i =0 ;i<squares.length;i++){
+  
+        squares[i].style.backgroundColor = colors[i]
+    }
+});
 color_disp.textContent = picked;
 
 for(var i =0 ;i<squares.length;i++){
@@ -21,6 +70,9 @@ for(var i =0 ;i<squares.length;i++){
                 squares[j].style.backgroundColor = picked;
             }
             msg_disp.textContent = "Correct!";
+            reset_btn.textContent = "Play Again?";
+            header.style.backgroundColor = picked;
+
         }
         else{
             this.style.backgroundColor = "#232323";

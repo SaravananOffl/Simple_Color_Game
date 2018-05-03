@@ -2,9 +2,6 @@ body{
     background-color: #232323;
 
 }  
-span{
-    color: white;
-}
 .square{
     width: 30%;
     background: purple;
@@ -15,4 +12,24 @@ span{
 #container{
     max-width: 600px;
     margin: 0 auto;
+}
+#stripe{
+    background: white;
+    height: 30px;
+    text-align: center; 
+}
+#message{
+    color: black;
+text-align: center;
+
+}
+h1{
+
+text-align: center ;
+   font-size: 30dp;
+}
+
+.selected{
+    background: blueviolet;
+    
 }
