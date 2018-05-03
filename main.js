@@ -50,11 +50,13 @@ reset_btn.addEventListener("click",function(){
      colors = generateColors(num_of_squares);
      picked = pickColor();
     color_disp.textContent = picked;
-    
+    msg_disp.textContent = "";
     for(var i =0 ;i<squares.length;i++){
   
         squares[i].style.backgroundColor = colors[i]
     }
+    reset_btn.textContent = "Reset";
+
 });
 color_disp.textContent = picked;
 
@@ -75,8 +77,11 @@ for(var i =0 ;i<squares.length;i++){
 
         }
         else{
+            header.style.backgroundColor = 'steelblue';
+
             this.style.backgroundColor = "#232323";
             msg_disp.textContent = "Try Again";
+
         }
         
     });
